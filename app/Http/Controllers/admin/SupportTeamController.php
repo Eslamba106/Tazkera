@@ -23,6 +23,7 @@ class SupportTeamController extends Controller
     public function create(){
         return view('admin.support_team.create');
     }
+
     public function store(SupportTeamRequest $request){
         Support_Team::create([
             'name' => $request->name,
@@ -30,5 +31,28 @@ class SupportTeamController extends Controller
             'password' => bcrypt($request->password), 
         ]);
         return redirect()->route('admin.support_team.index')->with(['Success' => 'تمت الاضافة' ]);
+    }
+
+    public function edit($id){
+        $member = Support_Team::findOrFail($id);
+        return view('admin.support_team.edit' , compact('member'));
+    }
+    
+    public function update(Request $request){
+
+        $member = Support_Team::findOrFail($request->id);
+        $member->update([
+            'name' => $request->name,
+            'email'  => $request->email ,
+            'password' => bcrypt($request->password), 
+        ]);
+        return redirect()->route('admin.support_team.index')->with(['Success' => 'تمت التعديل' ]);
+    }
+
+    public function delete($id){
+        $member = Support_team::findOrFail($id);
+        $member->delete();
+        return redirect()->route('admin.support_team.index')->with(['Success' => 'تمت الحذف' ]);
+
     }
 }

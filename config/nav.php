@@ -14,18 +14,14 @@ return [
         // "badge" => "Eslam",
         "active"=> "admin.support_team.*",
     ],
-    // [
-    //     "icon"  => "far fa-circle nav-icon",
-    //     "route" => "dashboard.products.index",
-    //     "title" => "Products",
-    //     // "badge" => "Eslam",
-    //     "active"=> "dashboard.products.*",
-    // ],
-    // [
-    //     "icon"  => "far fa-circle nav-icon",
-    //     "route" => "home",
-    //     "title" => "Front Office",
-    //     // "badge" => "Eslam",
-    //     "active"=> "/.*",
-    // ],
+    [
+        "route" => "admin.groups.index",
+        "title" => "المجموعات",
+        "active"=> "admin.groups.*",
+    ],
+    [
+        "route" => "admin.users.index",
+        "title" => "المستخدمين",
+        "active"=> "admin.users.*",
+    ],
 ];
