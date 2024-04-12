@@ -14,6 +14,8 @@ class SupportTeamController extends Controller
 
     public function __construct(AdminRepositoryInterface $support_team){
         $this->support_team = $support_team;
+        $this->middleware('auth:admin');
+
     }
     public function index(){
         $team = $this->support_team->get_data(Support_Team::class);
@@ -30,7 +32,7 @@ class SupportTeamController extends Controller
             'email'  => $request->email ,
             'password' => bcrypt($request->password), 
         ]);
-        return redirect()->route('admin.support_team.index')->with(['Success' => 'تمت الاضافة' ]);
+        return redirect()->route('admin.support_team.index')->with(['success' => 'تمت الاضافة' ]);
     }
 
     public function edit($id){
@@ -46,13 +48,13 @@ class SupportTeamController extends Controller
             'email'  => $request->email ,
             'password' => bcrypt($request->password), 
         ]);
-        return redirect()->route('admin.support_team.index')->with(['Success' => 'تمت التعديل' ]);
+        return redirect()->route('admin.support_team.index')->with(['success' => 'تمت التعديل' ]);
     }
 
     public function delete($id){
         $member = Support_team::findOrFail($id);
         $member->delete();
-        return redirect()->route('admin.support_team.index')->with(['Success' => 'تمت الحذف' ]);
+        return redirect()->route('admin.support_team.index')->with(['success' => 'تمت الحذف' ]);
 
     }
 }

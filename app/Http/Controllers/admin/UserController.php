@@ -14,6 +14,8 @@ class UserController extends Controller
 
     public function __construct(AdminRepositoryInterface $user){
         $this->user = $user;
+        $this->middleware('auth:admin');
+
     }
     public function index(){
         $users = $this->user->get_data(User::class);

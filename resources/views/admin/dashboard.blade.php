@@ -94,8 +94,5 @@
 
 
 
-				<!-- /row -->
-			</div>
-		</div>
 		<!-- Container closed -->
 </x-dashboard.dashboard-layout>

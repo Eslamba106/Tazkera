@@ -14,6 +14,8 @@ class GroupController extends Controller
 
     public function __construct(AdminRepositoryInterface $group){
         $this->group = $group;
+        $this->middleware('auth:admin');
+
     }
     public function index(){
         $groups = $this->group->get_data(Group::class);
@@ -46,11 +48,14 @@ class GroupController extends Controller
     public function update(Request $request){
 
         $request->validate([
-            'name'   => 'required|unique:groups,name',
+            'name'   => 'required',
             'support_team_id' =>'required', 
         ]);
         $group = Group::findOrFail($request->id); 
-        $group->update($request->all());
+        $group->update([
+            'name'   => $request->name,
+            'support_team_id' => $request->support_team_id, 
+        ]);
         return redirect()->route('admin.groups.index')->with(['success' => 'تمت التعديل' ]);
     }
 
