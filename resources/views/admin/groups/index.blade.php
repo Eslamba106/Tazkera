@@ -19,9 +19,9 @@
             </div><!-- /.container-fluid -->
         </div>
     </x-slot:breadcrumb>
-    <x-alert type="success"/>
-    <x-alert type="info"/>
-    <x-alert type="fail"/>
+    <x-alert type="success" />
+    <x-alert type="info" />
+    <x-alert type="fail" />
 
     <a href="{{ route('admin.groups.create') }}">
         <button class="btn ml-5 mb-2 btn-dark">اضافة مجموعة</button>
@@ -36,7 +36,7 @@
             <tr>
                 <th>الكود</th>
                 <th>الاسم</th>
-                <th>عضو الدعم المسؤول</th>
+                {{-- <th>عضو الدعم المسؤول</th> --}}
                 <th>اضيف في</th>
                 <th colspan="2">العمليات</th>
             </tr>
@@ -46,11 +46,21 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->supportTeam->name }}</td>
+                    {{-- <td>
+                        @foreach ($members as $member)
+                        @if($id == 8) 
+                            {{ $member }}
+                        @endif   
+                        @endforeach
+                    </td> --}}
                     <td>{{ $item->created_at }}</td>
                     <td>
                         <a href="{{ route('admin.groups.edit', $item->id) }}" {{-- <a href="{{ route('admin.categories.edit', $item->id) }}" --}}
                             class="btn btn-sm btn-outline-success">تعديل</a>
+                    </td>
+                    <td>
+                        <a href="{{ route('admin.groups.show', $item->id) }}" {{-- <a href="{{ route('admin.categories.edit', $item->id) }}" --}}
+                            class="btn btn-sm btn-outline-info">عرض</a>
                     </td>
                     <td>
                         {{-- <form action="{{ route('admin.categories.delete', $item->id) }}" method="post"> --}}

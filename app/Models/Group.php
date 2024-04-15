@@ -10,12 +10,20 @@ class Group extends Model
     use HasFactory;
 
     protected $table = 'groups';
-    protected $fillable = ['name' , 'support_team_id'];
+    protected $fillable = ['name'  , 'slug'];
 
     public function users(){
         return $this->hasMany(User::class,'group_id','id');
     }
     public function supportTeam(){
-        return $this->belongsTo(Support_Team::class,'support_team_id','id');
+        return $this->belongsToMany(
+            Support_Team::class,
+            'support_team_group' , 
+            'group_id',
+            'support_team_id',
+            'id',
+            'id',
+        
+        );    
     }
 }

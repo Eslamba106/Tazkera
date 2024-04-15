@@ -22,6 +22,15 @@ class Support_Team extends Authenticatable
         'password',
     ];
     public function groups(){
-        return $this->hasMany(Group::class,'support_id' , 'id');
+        return $this->belongsToMany(
+            Group::class,
+            'support_team_group' , 
+            'support_team_id',
+            'group_id',
+            'id',
+            'id',
+        
+        );
+        // return $this->hasMany(Group::class,'support_id' , 'id');
     }
 }

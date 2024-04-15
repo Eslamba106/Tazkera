@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\TazkraController;
 
@@ -24,10 +25,18 @@ Route::get('user/dashboard/create', [TazkraController::class, 'create'])->name('
 Route::post('user/dashboard/store', [TazkraController::class, 'store'])->name('user.dashboard.store');
 Route::get('user/dashboard/edit/{id}', [TazkraController::class, 'edit'])->name('user.dashboard.edit');
 Route::get('user/dashboard/show/{id}', [TazkraController::class, 'show'])->name('user.dashboard.show');
-Route::post('user/dashboard/update', [TazkraController::class, 'update'])->name('user.dashboard.update');
+Route::post('user/dashboard/update/{id}', [TazkraController::class, 'update'])->name('user.dashboard.update');
 Route::post('user/dashboard/delete/{id}', [TazkraController::class, 'delete'])->name('user.dashboard.delete');
 
+########################################## Chat #############################################
 
+Route::get('/user/chat/{id}' ,[ChatController::class , 'chatForm']);//->middleware('auth:web,supportTeam');
+
+Route::post('user/chat/{id}' ,[ChatController::class , 'sendMessage'])->middleware('auth');
+
+##############################################################################################
+
+Route::get('user/dashboard/support', [TazkraController::class, 'support'])->name('user.support.index');
 
 
 

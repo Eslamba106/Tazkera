@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->foreignId('support_team_id')->constrained("support_teams")->cascadeOnDelete();
+            $table->string("slug")->unique();
+            // $table->foreignId('support_team_id')->constrained("support_teams")->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();
         });

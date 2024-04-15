@@ -45,7 +45,7 @@
                                     <div class="form-group">
                                         <label for="validationCustom01" class="mb-1">البريد الالكتروني</label>
                                         <input class="form-control" id="validationCustom01" type="text" name="email"
-                                        value="{{ old('email', $user->email )}}">
+                                        value="{{ old('email', $user->email )}}`">
                                     </div>
                                     <div class="form-group">
                                         <label for="validationCustom01" class="mb-1">كلمة السر</label>

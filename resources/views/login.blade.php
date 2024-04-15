@@ -113,11 +113,11 @@
 
             {{--form support team --}}
             <div class="panel" id="support_team">
+                <h2>الدخول كدعم فني</h2>
                 <form action="{{ route('login.support_team') }}" method="post" >
-                    <h2>الدخول كدعم فني</h2>
                     @csrf
                     <div class="input-group mb-3">
-                        <x-form.input name="email" placeholder="username or email" required autofocus/>
+                        <x-form.input name="email" placeholder="email" required autofocus/>
                         {{-- <input type="text" name="email" class="form-control" placeholder="username or email"> --}}
                         <div class="input-group-append">
                             <div class="input-group-text">

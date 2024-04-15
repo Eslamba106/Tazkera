@@ -26,8 +26,8 @@ class RedirectIfAuthenticated
         if (auth('admin')->check()){
             return redirect(RouteServiceProvider::ADMIN);
         }
-        if (auth('supportTeam')->check()){
-            return redirect(RouteServiceProvider::SUPPORT_TEAM);
+        if (auth('support_team')->check()){
+            return redirect(RouteServiceProvider::SUPPORT);
         }
         // foreach ($guards as $guard) {
         //     if (Auth::guard($guard)->check()) {

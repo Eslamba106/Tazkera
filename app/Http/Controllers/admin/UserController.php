@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\User;
+use App\Models\Group;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Group;
+use Illuminate\Support\Facades\Hash;
 use App\Repositories\admin\AdminRepositoryInterface;
 
 class UserController extends Controller
@@ -39,7 +40,7 @@ class UserController extends Controller
         User::create([
             'name' => $request->name,
             'email'  => $request->email ,
-            'password' => bcrypt($request->password), 
+            'password' => Hash::make($request->password), 
             'phone' => $request->phone, 
             'location' => $request->location, 
             'group_id' => $request->group_id, 
@@ -59,7 +60,7 @@ class UserController extends Controller
         $user->update([
             'name' => $request->name,
             'email'  => $request->email ,
-            'password' => bcrypt($request->password), 
+            'password' => Hash::make($request->password), 
             'phone' => $request->phone, 
             'location' => $request->location, 
             'group_id' => $request->group_id, 

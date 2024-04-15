@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\support\SupportTeamController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/support_team/dashboard', [SupportTeamController::class , 'index'])->name('support_team.dashboard');
 
-
+Route::get('support_team/dashboard/show/{id}' , [SupportTeamController::class , 'show'] )->name('support_team.dashboard.show');
+################################################# Chat ###########################################
+Route::get('support_team/chat/{id}' ,[ChatController::class , 'chatForm'])->name('chat_form');//->middleware('auth:web,supportTeam');
+Route::post('support_team/chat/{id}' ,[ChatController::class , 'sendMessage'])->middleware('auth:web,support_team');
 
 
 

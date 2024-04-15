@@ -31,6 +31,7 @@ Route::post('/admin/support_team/store' , [SupportTeamController::class , 'store
 Route::get('/admin/support_team/edit/{id}' , [SupportTeamController::class , 'edit'])->name('admin.support_team.edit');
 Route::post('/admin/support_team/delete/{id}' , [SupportTeamController::class , 'delete'])->name('admin.support_team.delete');
 Route::post('/admin/support_team/update' , [SupportTeamController::class , 'update'])->name('admin.support_team.update');
+Route::get('/admin/support_team/show/{id}' , [SupportTeamController::class , 'show'])->name('admin.support_team.show');
 
 
 ######################################## Groups Routes ############################################################
@@ -39,6 +40,7 @@ Route::get('/admin/groups' , [GroupController::class , 'index'])->name('admin.gr
 Route::get('/admin/groups/create' , [GroupController::class , 'create'])->name('admin.groups.create');
 Route::post('/admin/groups/store' , [GroupController::class , 'store'])->name('admin.groups.store');
 Route::get('/admin/groups/edit/{id}' , [GroupController::class , 'edit'])->name('admin.groups.edit');
+Route::get('/admin/groups/show/{id}' , [GroupController::class , 'show'])->name('admin.groups.show');
 Route::post('/admin/groups/delete/{id}' , [GroupController::class , 'delete'])->name('admin.groups.delete');
 Route::post('/admin/groups/update' , [GroupController::class , 'update'])->name('admin.groups.update');
 

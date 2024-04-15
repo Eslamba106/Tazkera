@@ -52,6 +52,12 @@
                                         <input class="form-control" id="validationCustom01" type="password" name="password"
                                             value="">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="validationCustom01" class="mb-1">المجموعات التابعة</label>
+                                        <input class="form-control" id="validationCustom01" type="text" name="groups"
+                                            value="{{ old('groups', $groups )}}"
+                                            >
+                                    </div>
                                     <div class="modal-footer">
                                         <button class="btn" style="background-color: #602D8D ; color:white"
                                             type="submit">حفظ</button>
@@ -67,4 +73,15 @@
         </div>
 
     </div>
+    @push('styles')
+    <link href="{{ asset('css/dist/tagify.css') }}" rel="stylesheet" type="text/css" />
+    @endpush
+    @push('scripts')
+    <script src="{{ asset('js/dist/tagify.js') }}"></script>
+    <script src="{{ asset('js/dist/tagify.polyfills.min.js') }}"></script>
+    <script>
+        var inputElm = document.querySelector('[name=groups]');
+        tagify = new Tagify (inputElm);
+    </script>
+    @endpush
 </x-back-office.dashboard-layout>

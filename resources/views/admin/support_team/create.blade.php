@@ -51,6 +51,7 @@
                                         <input class="form-control" id="validationCustom01" type="password" name="password"
                                             value="">
                                     </div>
+
                                     <div class="modal-footer">
                                         <button class="btn" style="background-color: #602D8D ; color:white"
                                             type="submit">حفظ</button>
@@ -66,4 +67,5 @@
         </div>
 
     </div>
-</x-back-office.dashboard-layout>
+
+</x-dashboard.dashboard-layout> 

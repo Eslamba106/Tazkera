@@ -11,11 +11,11 @@ return [
         "title" => "التذاكر",
         "active"=> "user.dashboard.*",
     ],
-    // [
-    //     "route" => "user.groups.index",
-    //     "title" => "المجموعات",
-    //     "active"=> "user.groups.*",
-    // ],
+    [
+        "route" => "user.support.index",
+        "title" => "الدعم الفني",
+        "active"=> "user.support.*",
+    ],
     // [
     //     "route" => "user.users.index",
     //     "title" => "المستخدمين",

@@ -22,7 +22,7 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])->middleware('
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])->middleware('guest')->name('login.user');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout.user');
+Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout.user');
 
 //################################## Route Admin ##############################################
 
@@ -37,6 +37,6 @@ Route::get('/logout/admin', [AdminController::class, 'destroy'])->middleware('au
 
 Route::post('/login/support_team', [SupportTeamController::class, 'store'])->middleware('guest')->name('login.support_team');
 
-Route::post('/logout/support_team', [SupportTeamController::class, 'destroy'])->middleware('auth:support_team')->name('logout.support_team');
+Route::get('/logout/support_team', [SupportTeamController::class, 'destroy'])->middleware('auth:support_team')->name('logout.support_team');
 
 //#############################################################################################
