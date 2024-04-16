@@ -34,7 +34,7 @@
 										</div>
 										<span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-up text-red"></i>
-											<span class="text-red op-7">{{ App\Models\Support_Team::count() }}</span>
+											<span class="text-red op-7">{{ App\Models\Support_Team::count() ?? 0 }}</span>
 										</span>
 									</div>
 								</div>
@@ -56,7 +56,7 @@
 										</div>
 										<span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-down text-green"></i>
-											<span class="text-green op-7"> {{ App\Models\Group::count() }}</span>
+											<span class="text-green op-7"> {{ App\Models\Group::count() ?? 0 }}</span>
 										</span>
 									</div>
 								</div>
@@ -78,7 +78,7 @@
 										</div>
 										<span class="float-right my-auto mr-auto">
 											<i class="fas fa-arrow-circle-down text-blue"></i>
-											<span class="text-blue op-7"> {{ App\Models\User::count() }}</span>
+											<span class="text-blue op-7"> {{ App\Models\User::count() ?? 0 }}</span>
 										</span>
 									</div>
 								</div>
